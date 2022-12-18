@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Renault Magnum",
+    "driver": {
+      "name": " "
+    },
+    "state": "BASE"
+  },
+  {
+    "id": 2,
+    "name": "Volvo",
+    "driver": {
+      "name": " "
+    },
+    "state": "BASE"
+  },
+  {
+    "id": 3,
+    "name": "DAF XT",
+    "driver": {
+      "name": " "
+    },
+    "state": "BASE"
+  }
+]
