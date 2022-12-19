@@ -48,6 +48,6 @@ public class Truck {
 
     @Override
     public String toString() {
-        return " "+ id+" |"+name+" |"+ "     | ON"+state;
+        return " "+ id+" |"+name+" |"+ "     | ON "+state;
     }
 }
