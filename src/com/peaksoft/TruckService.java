@@ -10,7 +10,7 @@ public class TruckService {
     Scanner sc=new Scanner(System.in);
     static Driver driver=new Driver();
     static  String dr;
-    public void changeTruck(Truck[]trucks,int truckId,Driver[]drivers) throws MyException {
+    public void changeTruck(Truck[]trucks,int truckId,Driver[]drivers){
         for (int i = 0; i <trucks.length ; i++) {
             if (trucks[i].getId()==truckId){
                 if(trucks[i].getDriver().getName()==null){
@@ -53,11 +53,12 @@ public class TruckService {
                 }else if(trucks[i].getState()==State.REPAIR){
                     System.out.println(trucks[i].getName()+" на ремонте");
                 }
-            }if(trucks[i].getId()>trucks.length){
+            }else if(trucks[i].getId()<trucks.length){
                 System.out.println("Выберите только один из 3");
+                }
             }
         }
-    }
+
     public void changeDriver(Driver []drivers,Truck truck) {
         for (int i = 0; i < drivers.length; i++) {
             if(drivers[i].getId()== truck.getId()) {
@@ -68,7 +69,7 @@ public class TruckService {
 
     }
     public void startDriving(Driver driver,Truck truck){
-        System.out.println("Грузовик "+truck.getName()+"ведет"+driver.getName());
+        System.out.println("Грузовик "+truck.getName()+" ведет "+driver.getName());
     }
     public void startRepair(Truck truck){
         System.out.println("Теперь грузовик "+truck.getName()+" на ремонте");

@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     private static GsonBuilder gsonBuilder = new GsonBuilder();
@@ -17,7 +18,7 @@ public class Main {
     private static Path URL = Paths.get("MotorPro.json");
 
     private static Path URLDriver = Paths.get("MotorProDriver.json");
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         /**
          * Welcome guis it is first project of second stage
          * good luck*/
@@ -49,6 +50,29 @@ public class Main {
         System.out.println("—+———-----------+———+");
       for(Driver driver: drivers1){
           System.out.println(driver);
+      }
+        Scanner sc=new Scanner(System.in);
+      while (true) {
+          try {
+              TruckService truckService = new TruckService();
+              System.out.println("Выберите грузовик или нажмите на 0,чтобы остановить программу");
+              int truckId=sc.nextInt();
+              truckService.changeTruck(trucks, truckId, drivers);
+              if(truckId==0){
+                  break;
+              }
+              for (Truck truck1:trucks){
+                  if(truck1.getId()==truckId){
+                      System.out.println("N "+truck1.getId());
+                      System.out.println("Truck's name "+truck1.getName());
+                      System.out.println("Driver "+truck1.getDriver());
+                      System.out.println("Truck's state "+truck1.getState());
+                  }
+              }
+          }catch (RuntimeException e) {
+              e.printStackTrace();
+          }
+
       }
     }
 
